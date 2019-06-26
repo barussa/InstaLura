@@ -32,12 +32,14 @@ export default class InstaluraMobile extends Component {
   keyExtractor={item => item.id}
   renderItem={ ({item}) => 
     <View>
+      <Image source={require('./Imagens/pop-os.png')}
+          style={{width:40, height:40}} />
       <Text>{item.usuario}</Text>
       <Image source={require('./Imagens/pop-os.png')} style={{width:width, height:width}} />
     </View>
   }
-/>
+    />
       );
         }
-}
+          }
 
