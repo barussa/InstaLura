@@ -19,27 +19,49 @@ const instructions = Platform.select({
 });
 
 export default class InstaluraMobile extends Component {
-  render() {
-    const fotos = [
-     {id: 1, usuario: 'pedro'},
-     {id: 2, usuario: 'rafael'},
-     {id: 3, usuario: 'vitor'}
-  ];
+    render() {
+      const fotos = [
+      {id: 1, usuario: 'pedro'},
+      {id: 2, usuario: 'luca'},
+      {id: 3, usuario: 'vitor'}
+      ];
 
-    return (
-<FlatList style={{marginTop: 20}}
-  data={fotos}
-  keyExtractor={item => item.id}
-  renderItem={ ({item}) => 
-    <View>
-      <Image source={require('./Imagens/pop-os.png')}
-          style={{width:40, height:40}} />
-      <Text>{item.usuario}</Text>
-      <Image source={require('./Imagens/pop-os.png')} style={{width:width, height:width}} />
-    </View>
-  }
-    />
+      return (
+          <FlatList style={styles.container}
+            data={fotos}
+            keyExtractor={item => item.id}
+            renderItem={ ({item}) => 
+                <View>
+                    <View style={styles.cabecalho}>
+                        <Image source={require('./Imagens/pop-os.png')} 
+                                style={styles.fotoDePerfil} />
+                        <Text>{item.usuario}</Text>
+                    </View>
+                    <Image source={require('./Imagens/pop-os.png')} 
+                        style={styles.foto} />
+                </View>
+            }
+          />
       );
-        }
-          }
+    }
+}
 
+const styles = StyleSheet.create({
+    container: {
+      marginTop: 20
+    },
+    cabecalho: {
+      margin: 10, 
+      flexDirection: 'row', 
+      alignItems: 'center'
+    },
+    fotoDePerfil: {
+      marginRight: 10, 
+      borderRadius: 20, 
+      width:40, height:40
+    },
+    foto: {
+      width:width, 
+      height:width
+    },
+});
